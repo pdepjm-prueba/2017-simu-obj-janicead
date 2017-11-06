@@ -1,0 +1,24 @@
+import StarWars.*
+
+describe "Test de Star Wars"{
+	
+	var anakin= new Maestro(5,10,20000,jedi,10,450)
+	
+
+
+
+test "Anakin sufre un suceso que le provoca convertirse en un Sith" {
+	jedi.paz(10)
+	anakin.suceso(1000)
+	assert.equals(sith,anakin.mostrarMaestro())
+}
+test "Anakin vuelve al lado de la luz"{
+	anakin.cambiarTipoMaestro(sith)
+	anakin.suceso(1000000000000000000000000000)
+	assert.equals(jedi,anakin.mostrarMaestro())
+}
+
+
+}
+
+
