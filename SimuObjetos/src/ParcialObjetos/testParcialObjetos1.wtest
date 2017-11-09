@@ -1,10 +1,14 @@
-import example.*
+import ParcialObjetos.*
 
 describe "Tests del Parcial Objetos"{
 	var montaniaLejana= new Expedicion([aldeaLejana,capitalMuyLejana],[jack])
 	var jack= new Vikingo(new Soldado(300),esclavo,0,0)
 	var aldeaLejana= new Aldea(6)
 	var capitalMuyLejana= new Capital(40,3)
+	
+	
+	
+	
 	
 	test "Si jack escala socialmente, será de casta media"{
 		jack.subirEscala()

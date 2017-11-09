@@ -1,5 +1,6 @@
 class NoPuedeSubirEsclavoConArmas inherits Exception{}
 class NoSePuedeSubirMasDeEscala inherits Exception{}
+class NoValeLaPena inherits Exception{}
 class Expedicion{
 	var listaExpedicionistas= #{}
 	var lugaresAInvadir= #{}
@@ -14,7 +15,7 @@ class Expedicion{
 		listaExpedicionistas.add(vikingo)
 		}
 	}
-	method (){
+	method valeLaPena(){
 		if (lugaresAInvadir.all({aldeaOCapital=>aldeaOCapital.valeLaPena(listaExpedicionistas)})){
 			listaExpedicionistas.forEach({expedicionistas=>expedicionistas.cobrarVida()})
 			listaExpedicionistas.forEach({expedicionistas=>expedicionistas.cobrarOro(self.dividirRiquezas())})
@@ -27,9 +28,13 @@ class Expedicion{
 	}
 	method realizarExpedicion(){
 		if(self.valeLaPena()){
+			self.dividirRiquezas()
+		}
+		else {
+			throw new NoValeLaPena("No vale la pena esa expedición")
+		}
 			
 		}
-	}
 	method cantidadOroGanado(){
 		return lugaresAInvadir.sum({aldeaOCapital=>aldeaOCapital.botin()})		
 	}
