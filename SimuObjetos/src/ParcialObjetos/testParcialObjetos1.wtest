@@ -1,0 +1,20 @@
+import example.*
+
+describe "Tests del Parcial Objetos"{
+	var montaniaLejana= new Expedicion([aldeaLejana,capitalMuyLejana],[jack])
+	var jack= new Vikingo(new Soldado(300),esclavo,0,0)
+	var aldeaLejana= new Aldea(6)
+	var capitalMuyLejana= new Capital(40,3)
+	
+	test "Si jack escala socialmente, será de casta media"{
+		jack.subirEscala()
+		assert.equals(castaMedia,jack.casta())
+	}
+	test "No vale la pena ir a la expedicion montaniaLejana"{
+		assert.that(montaniaLejana.valeLaPena())
+	}
+	test "Un esclavo no puede realizar una expedicion"{
+	assert.throwsExceptionLike(new NoPuedeSubirEsclavoConArmas("No puede subir esclavo con armas") ,{montaniaLejana.puedeIr(jack)})
+}
+//el primer test funciona los demas hay que pasar todas las variables por consola para que funcionen correctamente.
+}
